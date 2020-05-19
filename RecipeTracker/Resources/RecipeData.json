@@ -1,0 +1,43 @@
+[
+    {
+        "id": "6D4AA0BC-FC29-425F-8674-654C533AE8F7",
+        "name": "Kung Pao Chicken",
+        "isFavorite": false,
+        "category": "Entree",
+        "imageName": "kungpaochicken",
+        "steps": [
+        {
+            "title": "pre-fry chicken",
+            "items": [{
+                "description": "None"
+            }],
+            "timeLimit": 600,
+            "isDone": false
+        },
+        {
+            "title": "stir-fry mix-up lalalalalalall",
+            "items": [{
+                "description": "None"
+            }],
+            "timeLimit": 8469,
+            "isDone": false
+        }
+        ]
+    },
+    {
+        "id": "9886C478-1FE5-4DFE-AFA6-FDD2391112EC",
+        "name": "Greek Yoghurt",
+        "isFavorite": false,
+        "category": "Dessert",
+        "imageName": "greekyoghurt",
+        "steps": []
+    },
+    {
+        "id": "6081857D-E5FF-4C08-9DFB-550715E50B2B",
+        "name": "French Fries",
+        "isFavorite": false,
+        "category": "FastFood",
+        "imageName": "RecipeIcon",
+        "steps": []
+    }
+]
