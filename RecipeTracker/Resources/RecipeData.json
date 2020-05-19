@@ -7,20 +7,24 @@
         "imageName": "kungpaochicken",
         "steps": [
         {
+            "id": "332A89E4-6AA7-4EB3-B2AA-2C52FD3799D2",
             "title": "pre-fry chicken",
             "items": [{
                 "description": "None"
             }],
             "timeLimit": 600,
-            "isDone": false
+            "isDone": false,
+            "index": 1
         },
         {
+            "id": "907D3FAD-9D68-4305-9666-9C13BA32D8C9",
             "title": "stir-fry mix-up lalalalalalall",
             "items": [{
                 "description": "None"
             }],
             "timeLimit": 8469,
-            "isDone": false
+            "isDone": false,
+            "index": 2
         }
         ]
     },

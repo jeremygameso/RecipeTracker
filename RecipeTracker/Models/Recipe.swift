@@ -34,17 +34,21 @@ struct Recipe: Hashable, Codable, Identifiable {
     
 }
 
-struct RecipeStep: Hashable, Codable {
+struct RecipeStep: Hashable, Codable, Identifiable {
+    var id: UUID
     var title: String
     var items: [RecipeStepItem] = []
     var timeLimit: Int
     var isDone: Bool
+    var index: Int
     
-    init(title: String, timeLimit: Int) {
+    init(id: UUID, title: String, timeLimit: Int) {
+        self.id = id
         self.title = title
         self.items = []
         self.timeLimit = timeLimit
         self.isDone = false
+        self.index = 0
     }
 }
 

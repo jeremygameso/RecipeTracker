@@ -14,7 +14,6 @@ struct RecipeStepDetail: View {
     //@State var currentDate = Date()
     //@State var timeLimit: String
     var step: RecipeStep
-    var stepIdx: Int = 1
     var stepContent: String = "Step Title"
     var timeLimit: Int = 3650
     
@@ -34,7 +33,7 @@ struct RecipeStepDetail: View {
             
             HStack {
 
-                Text (String(stepIdx))
+                Text (String(step.index))
                 .font(.subheadline)
                 .padding()
                 .background(Color.gray)
@@ -46,7 +45,7 @@ struct RecipeStepDetail: View {
                 .font(.subheadline)
                 .foregroundColor(Color.gray)
 
-                Text (String(stepIdx))
+                Text (String(step.index))
                 .font(.subheadline)
                 .padding()
                 .background(Color.gray)

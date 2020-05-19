@@ -61,24 +61,24 @@ struct RecipeDetail: View {
                     //RecipeStepDetail(stepIdx:1, stepContent: "Test",timeLimit: 200)
                         List {
                             
-                            ForEach(0..<self.recipe.steps.count) { idx in
-                                NavigationLink(destination: RecipeStepDetail(step:self.recipe.steps[idx],stepIdx:idx+1)) {
-                                    RecipeStepRow(step:self.recipe.steps[idx],stepIdx:idx+1)
+                            ForEach(self.recipe.steps) { step in
+                                NavigationLink(destination: RecipeStepDetail(step:step)) {
+                                    RecipeStepRow(step:step)
                                     //Spacer()
                                     Image(systemName: "timer")
                                         .foregroundColor(Color.gray)
-                                    if self.recipe.steps[idx].isDone {
+                                    if step.isDone {
                                         Text("Done")
                                             .font(.subheadline)
                                             .foregroundColor(Color.gray)
                                     }
                                     else {
-                                        Text(self.sec2display(inSec:self.recipe.steps[idx].timeLimit))
+                                        Text(self.sec2display(inSec:step.timeLimit))
                                             .font(.subheadline)
                                             .foregroundColor(Color.gray)
                                     }
                                 }
-                            }//.onDelete(perform: deleteStep)
+                            }.onDelete(perform: deleteStep)
                             
                             Button(action: {
                             }) {
@@ -152,6 +152,12 @@ struct RecipeDetail: View {
         //print (RecipeData.count)
         //self.recipe.steps.remove(atOffsets: offsets)
         self.userData.recipes[self.recipeIndex].steps.remove(atOffsets: offsets)
+        //for (index, step) in self.userData.recipes[self.recipeIndex].steps.enumerated() {
+        //    step.index = index
+        //}
+        for index in 0..<self.userData.recipes[self.recipeIndex].steps.count {
+            self.userData.recipes[self.recipeIndex].steps[index].index = index+1
+        }
         DataExchange.updateJSON(recipeData: self.userData.recipes,recipeName: "")
     }
 }

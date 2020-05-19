@@ -11,12 +11,11 @@ import SwiftUI
 struct RecipeStepRow: View {
 
     var step: RecipeStep
-    var stepIdx: Int = 1
     
     var body: some View {
         HStack() {
             
-            Text (String(stepIdx))
+            Text (String(step.index))
             .font(.subheadline)
             .padding()
             .background(Color.gray)
