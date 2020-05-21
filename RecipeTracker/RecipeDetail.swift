@@ -16,6 +16,8 @@ struct RecipeDetail: View {
     @State private var newStepName: String = ""
     @State private var newTimeLimit: String = ""
     
+    //@State private var listSteps: [RecipeStep] = []
+    
     let isDone: Bool = false
     
     var recipeIndex: Int {
@@ -61,7 +63,7 @@ struct RecipeDetail: View {
                     //RecipeStepDetail(stepIdx:1, stepContent: "Test",timeLimit: 200)
                         List {
                             
-                            ForEach(self.recipe.steps) { step in
+                            ForEach(self.recipe.steps, id: \.self) { step in
                                 NavigationLink(destination: RecipeStepDetail(step:step)) {
                                     RecipeStepRow(step:step)
                                     //Spacer()
@@ -78,14 +80,23 @@ struct RecipeDetail: View {
                                             .foregroundColor(Color.gray)
                                     }
                                 }
-                            }.onDelete(perform: deleteStep)
+                            }
+                            .onDelete(perform: deleteStep)
+                            //.onReceive(perform: refresh)
                             
-                            Button(action: {
-                            }) {
-                                HStack {
+                            //Button(action: {
+                            //}) {
+                            HStack {
+                                Button(action: {
+                                    if self.newStepName != "" && self.newTimeLimit != "" {
+                                        self.addNewStep(newStepName: self.newStepName, newTimeLimit: self.newTimeLimit)
+                                        self.newStepName = ""
+                                        self.newTimeLimit = ""
+                                    }
+                                }) {
                                      Image(systemName: "plus.square.fill")
                                          .resizable()
-                                         .frame(width: 25, height: 25)
+                                         .frame(width: 30, height: 30)
                                          .foregroundColor(Color.gray)
                                          //.clipShape(Circle())
                                          //.overlay(
@@ -93,20 +104,23 @@ struct RecipeDetail: View {
                                          .shadow(radius: 10)
                                          //.offset(x: 15)
                                          .frame(width: 60)
-                                    
-                                     TextField("New Step Title .........", text: $newStepName)
-                                     .font(.subheadline)
-                                     .foregroundColor(Color.gray)
-                                     .frame(width: 105)
-                                     .offset(x: -10)
-                                    
-                                    Image(systemName: "timer")
-                                        .foregroundColor(Color.gray)
-                                    TextField("XhourXminXsec", text: $newTimeLimit)
-                                    .font(.subheadline)
-                                    .foregroundColor(Color.gray)
+                                        .offset(x: -7.5)
                                 }
+                                
+                                 TextField("New Step Title .........", text: $newStepName)
+                                 .font(.subheadline)
+                                 .foregroundColor(Color.gray)
+                                 .frame(width: 105)
+                                 .offset(x: -5)
+                                
+                                Image(systemName: "timer")
+                                    .foregroundColor(Color.gray)
+                                
+                                TextField("XhourXminXsec", text: $newTimeLimit)
+                                .font(.subheadline)
+                                .foregroundColor(Color.gray)
                             }
+                            //}
                             
                         }
                     }
@@ -138,7 +152,7 @@ struct RecipeDetail: View {
             inFull = inFull + "\(min)min"
         }
         if sec != 0 {
-            inFull = inFull + "\(min)sec"
+            inFull = inFull + "\(sec)sec"
         }
         return inFull
     }
@@ -158,7 +172,33 @@ struct RecipeDetail: View {
         for index in 0..<self.userData.recipes[self.recipeIndex].steps.count {
             self.userData.recipes[self.recipeIndex].steps[index].index = index+1
         }
-        DataExchange.updateJSON(recipeData: self.userData.recipes,recipeName: "")
+        DataExchange.updateJSON(recipeData: self.userData.recipes)
+    }
+    
+    //func refresh () {
+        //self.listSteps = self.recipe.steps
+    //}
+    
+    func addNewStep (newStepName: String, newTimeLimit: String){
+        
+        let identifier = UUID()
+        var newTimitLimitSec: Int = 0
+        //let string = "🇩🇪€4€9"
+        let matched = Util.matches(for: "[0-9]", in: newTimeLimit)
+        for match in matched {
+            //do {
+            newTimitLimitSec = newTimitLimitSec*60 + Int(match)! // calculation not correct
+            //} catch let error {
+            //    print("invalid regex: \(error.localizedDescription)")
+            //}
+        }
+            
+        let newList = RecipeStep(id: identifier, title: newStepName, timeLimit: newTimitLimitSec, index: RecipeData[self.recipeIndex].steps.count+1)
+        //RecipeData[].steps.append(newList)
+        //self.recipe.steps.append(newList)
+        RecipeData[self.recipeIndex].steps.append(newList)
+        //RecipeData.append(newRecipe)
+        DataExchange.updateJSON(recipeData: RecipeData)
     }
 }
 

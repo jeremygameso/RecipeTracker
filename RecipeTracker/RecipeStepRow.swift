@@ -22,10 +22,12 @@ struct RecipeStepRow: View {
             .foregroundColor(.white)
             .clipShape(Circle())
             .shadow(radius: 10)
+            .frame(width: 50)
 
             Text (self.step.title)
             .font(.subheadline)
             .foregroundColor(Color.gray)
+            .frame(width: 120)
         }
             .frame(width: 170)//.Frame(width: 400)
     }

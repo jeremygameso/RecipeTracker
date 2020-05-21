@@ -98,7 +98,7 @@ struct NewRecipe: View {
         let newRecipe = Recipe(id: identifier, name: recipeName, category: Recipe.Category(rawValue: recipeCategory)!)
         
         RecipeData.append(newRecipe)
-        DataExchange.updateJSON(recipeData: RecipeData, recipeName: recipeName)
+        DataExchange.updateJSON(recipeData: RecipeData)
     }
 }
 

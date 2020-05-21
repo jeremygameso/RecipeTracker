@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -41,6 +41,9 @@
 		DB262E7F246D0E0D00568FFE /* RecipeCreated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB262E7E246D0E0D00568FFE /* RecipeCreated.swift */; };
 		DB262E81246DF5CC00568FFE /* DataExchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB262E80246DF5CC00568FFE /* DataExchange.swift */; };
 		DB262E83246E0CFB00568FFE /* RecipeStepDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB262E82246E0CFB00568FFE /* RecipeStepDetail.swift */; };
+		DB5CC5832475E268001FE3B7 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CC5822475E268001FE3B7 /* Util.swift */; };
+		DB5CC5862475F5E1001FE3B7 /* SwiftUIPullToRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = DB5CC5852475F5E1001FE3B7 /* SwiftUIPullToRefresh */; };
+		DB5CC5892475FB6F001FE3B7 /* TestPractice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CC5882475FB6F001FE3B7 /* TestPractice.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +104,8 @@
 		DB262E7E246D0E0D00568FFE /* RecipeCreated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCreated.swift; sourceTree = "<group>"; };
 		DB262E80246DF5CC00568FFE /* DataExchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExchange.swift; sourceTree = "<group>"; };
 		DB262E82246E0CFB00568FFE /* RecipeStepDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeStepDetail.swift; sourceTree = "<group>"; };
+		DB5CC5822475E268001FE3B7 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		DB5CC5882475FB6F001FE3B7 /* TestPractice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPractice.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB5CC5862475F5E1001FE3B7 /* SwiftUIPullToRefresh in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +157,7 @@
 		DB262E1124611D0900568FFE /* RecipeTracker */ = {
 			isa = PBXGroup;
 			children = (
+				DB5CC5872475FB12001FE3B7 /* Tools */,
 				DB262E6924613A6900568FFE /* Models */,
 				DB262E542461396900568FFE /* Resources */,
 				DB262E1224611D0900568FFE /* AppDelegate.swift */,
@@ -226,8 +233,17 @@
 				DB262E4B246133C500568FFE /* Recipe.swift */,
 				DB262E76246C758800568FFE /* UserData.swift */,
 				DB262E80246DF5CC00568FFE /* DataExchange.swift */,
+				DB5CC5822475E268001FE3B7 /* Util.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		DB5CC5872475FB12001FE3B7 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				DB5CC5882475FB6F001FE3B7 /* TestPractice.swift */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,6 +262,9 @@
 			dependencies = (
 			);
 			name = RecipeTracker;
+			packageProductDependencies = (
+				DB5CC5852475F5E1001FE3B7 /* SwiftUIPullToRefresh */,
+			);
 			productName = RecipeTracker;
 			productReference = DB262E0F24611D0900568FFE /* RecipeTracker.app */;
 			productType = "com.apple.product-type.application";
@@ -318,6 +337,9 @@
 				Base,
 			);
 			mainGroup = DB262E0624611D0900568FFE;
+			packageReferences = (
+				DB5CC5842475F5E1001FE3B7 /* XCRemoteSwiftPackageReference "SwiftUI-PullToRefresh" */,
+			);
 			productRefGroup = DB262E1024611D0900568FFE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -380,6 +402,7 @@
 				DB262E71246BBFF600568FFE /* RecipeDetail.swift in Sources */,
 				DB262E472461333100568FFE /* RecipeList.swift in Sources */,
 				DB262E4C246133C500568FFE /* Recipe.swift in Sources */,
+				DB5CC5832475E268001FE3B7 /* Util.swift in Sources */,
 				DB262E7D246CC20B00568FFE /* RecipeStepRow.swift in Sources */,
 				DB262E4324612BF200568FFE /* CircleImage.swift in Sources */,
 				DB262E83246E0CFB00568FFE /* RecipeStepDetail.swift in Sources */,
@@ -389,6 +412,7 @@
 				DB262E1724611D0A00568FFE /* MainView.swift in Sources */,
 				DB262E452461316F00568FFE /* RecipeRow.swift in Sources */,
 				DB262E73246BC83B00568FFE /* ResizedCircleImage.swift in Sources */,
+				DB5CC5892475FB6F001FE3B7 /* TestPractice.swift in Sources */,
 				DB262E6B24613A9800568FFE /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -708,6 +732,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DB5CC5842475F5E1001FE3B7 /* XCRemoteSwiftPackageReference "SwiftUI-PullToRefresh" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/SwiftUI-PullToRefresh";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DB5CC5852475F5E1001FE3B7 /* SwiftUIPullToRefresh */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB5CC5842475F5E1001FE3B7 /* XCRemoteSwiftPackageReference "SwiftUI-PullToRefresh" */;
+			productName = SwiftUIPullToRefresh;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DB262E0724611D0900568FFE /* Project object */;
 }

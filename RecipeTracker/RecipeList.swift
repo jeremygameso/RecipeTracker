@@ -95,7 +95,7 @@ struct RecipeList: View {
     func deleteRecipe (at offsets: IndexSet) {
         //print (RecipeData.count)
         self.userData.recipes.remove(atOffsets: offsets)
-        DataExchange.updateJSON(recipeData: self.userData.recipes,recipeName: "")
+        DataExchange.updateJSON(recipeData: self.userData.recipes)
     }
 }
 

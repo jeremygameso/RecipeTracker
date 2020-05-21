@@ -42,13 +42,13 @@ struct RecipeStep: Hashable, Codable, Identifiable {
     var isDone: Bool
     var index: Int
     
-    init(id: UUID, title: String, timeLimit: Int) {
+    init(id: UUID, title: String, timeLimit: Int, index: Int) {
         self.id = id
         self.title = title
         self.items = []
         self.timeLimit = timeLimit
         self.isDone = false
-        self.index = 0
+        self.index = index
     }
 }
 

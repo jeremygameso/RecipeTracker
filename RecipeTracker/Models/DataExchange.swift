@@ -15,7 +15,7 @@ final class DataExchange {
     //class func addNewRecipe (recipeName: String, recipeCategory: String){
     //class func deleteRecipe (recipeId: UUID,recipeName: String) {
     
-    class func updateJSON (recipeData: [Recipe], recipeName: String) {
+    class func updateJSON (recipeData: [Recipe]) {
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
         let data = try? encoder.encode(RecipeData)
@@ -26,7 +26,7 @@ final class DataExchange {
             else {
                 fatalError("Couldn't find \(filename) in main bundle.")
         }
-        print("This is the file being modifed: add recipe \(recipeName)")
+        print("This is the file being modifed in below path:")
         print(String(Bundle.main.url(forResource: "RecipeData.json", withExtension: nil)!.absoluteString))
         //try! writeData.write(to: file, atomically: false, encoding: .utf8)
         //try! writeData.write(toFile: filename, atomically: false, encoding: .utf8)
