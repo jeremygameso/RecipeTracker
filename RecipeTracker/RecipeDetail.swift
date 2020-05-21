@@ -192,21 +192,17 @@ struct RecipeDetail: View {
             matched = Util.matches(for: "[0-9]+hour", in: newTimeLimit)
             hour = Int(matched[0].replacingOccurrences(of: "hour", with: ""))!
         }
-        
         if newTimeLimit.contains("min") {
             matched = Util.matches(for: "[0-9]+min", in: newTimeLimit)
             min = Int(matched[0].replacingOccurrences(of: "min", with: ""))!
         }
-        //min = Int(matched[0])!
         if newTimeLimit.contains("sec") {
             matched = Util.matches(for: "[0-9]+sec", in: newTimeLimit)
             sec = Int(matched[0].replacingOccurrences(of: "sec", with: ""))!
         }
-        //print (matched)
-        //sec = Int(matched[0])!
-        print (hour)
-        print (min)
-        print (sec)
+        //print (hour)
+        //print (min)
+        //print (sec)
         //do {
         newTimitLimitSec = hour*3600 + min*60 + sec // calculation not correct
         //} catch let error {
