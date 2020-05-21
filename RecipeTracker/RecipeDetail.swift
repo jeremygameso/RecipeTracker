@@ -16,7 +16,10 @@ struct RecipeDetail: View {
     @State private var newStepName: String = ""
     @State private var newTimeLimit: String = ""
     
+    @State private var willMoveToNextScreen = false
+    
     //@State private var listSteps: [RecipeStep] = []
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     let isDone: Bool = false
     
@@ -61,9 +64,10 @@ struct RecipeDetail: View {
                 NavigationView {
                     VStack {
                     //RecipeStepDetail(stepIdx:1, stepContent: "Test",timeLimit: 200)
+                        
                         List {
                             
-                            ForEach(self.recipe.steps, id: \.self) { step in
+                            ForEach(self.userData.recipes[self.recipeIndex].steps, id: \.self) { step in
                                 NavigationLink(destination: RecipeStepDetail(step:step)) {
                                     RecipeStepRow(step:step)
                                     //Spacer()
@@ -82,6 +86,8 @@ struct RecipeDetail: View {
                                 }
                             }
                             .onDelete(perform: deleteStep)
+                            .onReceive(timer) { _ in }
+                            //.onReceive(publisher: timer, perform: refresh)
                             //.onReceive(perform: refresh)
                             
                             //Button(action: {
@@ -92,6 +98,7 @@ struct RecipeDetail: View {
                                         self.addNewStep(newStepName: self.newStepName, newTimeLimit: self.newTimeLimit)
                                         self.newStepName = ""
                                         self.newTimeLimit = ""
+                                        self.willMoveToNextScreen = true
                                     }
                                 }) {
                                      Image(systemName: "plus.square.fill")
@@ -122,19 +129,16 @@ struct RecipeDetail: View {
                             }
                             //}
                             
-                        }
+                        }                    
+
                     }
                     //.offset(x: 0, y: -130)
                     .navigationBarTitle(Text(recipe.name), displayMode: .inline)
                     .navigationBarHidden(true)
                     //.padding()
                 }
-            //.navigationBarTitle(Text("Recipe"), displayMode: .inline)
-            //.offset(x: 0, y: -200)
-            
-            //}
         }
-        
+        //.navigate(to: RecipeDetail(recipe: recipe).environmentObject(UserData()), when: $willMoveToNextScreen)
     }
     
     func sec2display (inSec: Int) -> String {
@@ -156,11 +160,6 @@ struct RecipeDetail: View {
         }
         return inFull
     }
-
-    
-    //fun addNewStep () {
-        
-    //}
     
   func deleteStep (at offsets: IndexSet) {
         //print (RecipeData.count)
@@ -175,30 +174,52 @@ struct RecipeDetail: View {
         DataExchange.updateJSON(recipeData: self.userData.recipes)
     }
     
-    //func refresh () {
-        //self.listSteps = self.recipe.steps
-    //}
+    func refresh () {
+        print ("refresh")
+        self.userData.recipes[self.recipeIndex].steps = RecipeData[self.recipeIndex].steps
+    }
     
     func addNewStep (newStepName: String, newTimeLimit: String){
         
         let identifier = UUID()
         var newTimitLimitSec: Int = 0
+        var hour: Int = 0
+        var min: Int = 0
+        var sec: Int = 0
+        var matched: [String] = []
         //let string = "🇩🇪€4€9"
-        let matched = Util.matches(for: "[0-9]", in: newTimeLimit)
-        for match in matched {
-            //do {
-            newTimitLimitSec = newTimitLimitSec*60 + Int(match)! // calculation not correct
-            //} catch let error {
-            //    print("invalid regex: \(error.localizedDescription)")
-            //}
+        if newTimeLimit.contains("hour") {
+            matched = Util.matches(for: "[0-9]+hour", in: newTimeLimit)
+            hour = Int(matched[0].replacingOccurrences(of: "hour", with: ""))!
         }
+        
+        if newTimeLimit.contains("min") {
+            matched = Util.matches(for: "[0-9]+min", in: newTimeLimit)
+            min = Int(matched[0].replacingOccurrences(of: "min", with: ""))!
+        }
+        //min = Int(matched[0])!
+        if newTimeLimit.contains("sec") {
+            matched = Util.matches(for: "[0-9]+sec", in: newTimeLimit)
+            sec = Int(matched[0].replacingOccurrences(of: "sec", with: ""))!
+        }
+        //print (matched)
+        //sec = Int(matched[0])!
+        print (hour)
+        print (min)
+        print (sec)
+        //do {
+        newTimitLimitSec = hour*3600 + min*60 + sec // calculation not correct
+        //} catch let error {
+        //    print("invalid regex: \(error.localizedDescription)")
+        //}
+        print (newTimitLimitSec)
             
-        let newList = RecipeStep(id: identifier, title: newStepName, timeLimit: newTimitLimitSec, index: RecipeData[self.recipeIndex].steps.count+1)
+        let newList = RecipeStep(id: identifier, title: newStepName, timeLimit: newTimitLimitSec, index: self.userData.recipes[self.recipeIndex].steps.count+1)
         //RecipeData[].steps.append(newList)
         //self.recipe.steps.append(newList)
-        RecipeData[self.recipeIndex].steps.append(newList)
+        self.userData.recipes[self.recipeIndex].steps.append(newList)
         //RecipeData.append(newRecipe)
-        DataExchange.updateJSON(recipeData: RecipeData)
+        DataExchange.updateJSON(recipeData: self.userData.recipes)
     }
 }
 

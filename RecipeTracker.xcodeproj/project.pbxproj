@@ -44,6 +44,7 @@
 		DB5CC5832475E268001FE3B7 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CC5822475E268001FE3B7 /* Util.swift */; };
 		DB5CC5862475F5E1001FE3B7 /* SwiftUIPullToRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = DB5CC5852475F5E1001FE3B7 /* SwiftUIPullToRefresh */; };
 		DB5CC5892475FB6F001FE3B7 /* TestPractice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CC5882475FB6F001FE3B7 /* TestPractice.swift */; };
+		DB5CC58B247635FD001FE3B7 /* RecipeStepCreated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CC58A247635FD001FE3B7 /* RecipeStepCreated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,7 @@
 		DB262E82246E0CFB00568FFE /* RecipeStepDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeStepDetail.swift; sourceTree = "<group>"; };
 		DB5CC5822475E268001FE3B7 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		DB5CC5882475FB6F001FE3B7 /* TestPractice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPractice.swift; sourceTree = "<group>"; };
+		DB5CC58A247635FD001FE3B7 /* RecipeStepCreated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeStepCreated.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 				DB262E7C246CC20B00568FFE /* RecipeStepRow.swift */,
 				DB262E82246E0CFB00568FFE /* RecipeStepDetail.swift */,
 				DB262E7E246D0E0D00568FFE /* RecipeCreated.swift */,
+				DB5CC58A247635FD001FE3B7 /* RecipeStepCreated.swift */,
 				DB262E7A246CA76C00568FFE /* NewRecipe.swift */,
 				DB262E4224612BF200568FFE /* CircleImage.swift */,
 				DB262E72246BC83B00568FFE /* ResizedCircleImage.swift */,
@@ -398,6 +401,7 @@
 			files = (
 				DB262E7F246D0E0D00568FFE /* RecipeCreated.swift in Sources */,
 				DB262E7B246CA76C00568FFE /* NewRecipe.swift in Sources */,
+				DB5CC58B247635FD001FE3B7 /* RecipeStepCreated.swift in Sources */,
 				DB262E1324611D0A00568FFE /* AppDelegate.swift in Sources */,
 				DB262E71246BBFF600568FFE /* RecipeDetail.swift in Sources */,
 				DB262E472461333100568FFE /* RecipeList.swift in Sources */,
