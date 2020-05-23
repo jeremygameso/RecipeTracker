@@ -45,6 +45,8 @@
 		DB5CC5862475F5E1001FE3B7 /* SwiftUIPullToRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = DB5CC5852475F5E1001FE3B7 /* SwiftUIPullToRefresh */; };
 		DB5CC5892475FB6F001FE3B7 /* TestPractice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CC5882475FB6F001FE3B7 /* TestPractice.swift */; };
 		DB5CC58B247635FD001FE3B7 /* RecipeStepCreated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CC58A247635FD001FE3B7 /* RecipeStepCreated.swift */; };
+		DB5CC58E2478A320001FE3B7 /* PhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CC58D2478A320001FE3B7 /* PhotoLibrary.swift */; };
+		DB5CC5902478A3FD001FE3B7 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5CC58F2478A3FD001FE3B7 /* Coordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +110,8 @@
 		DB5CC5822475E268001FE3B7 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		DB5CC5882475FB6F001FE3B7 /* TestPractice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPractice.swift; sourceTree = "<group>"; };
 		DB5CC58A247635FD001FE3B7 /* RecipeStepCreated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeStepCreated.swift; sourceTree = "<group>"; };
+		DB5CC58D2478A320001FE3B7 /* PhotoLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibrary.swift; sourceTree = "<group>"; };
+		DB5CC58F2478A3FD001FE3B7 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +171,7 @@
 				DB262E1624611D0A00568FFE /* MainView.swift */,
 				DB262E462461333100568FFE /* RecipeList.swift */,
 				DB262E70246BBFF600568FFE /* RecipeDetail.swift */,
+				DB262E72246BC83B00568FFE /* ResizedCircleImage.swift */,
 				DB262E442461316F00568FFE /* RecipeRow.swift */,
 				DB262E7C246CC20B00568FFE /* RecipeStepRow.swift */,
 				DB262E82246E0CFB00568FFE /* RecipeStepDetail.swift */,
@@ -174,7 +179,6 @@
 				DB5CC58A247635FD001FE3B7 /* RecipeStepCreated.swift */,
 				DB262E7A246CA76C00568FFE /* NewRecipe.swift */,
 				DB262E4224612BF200568FFE /* CircleImage.swift */,
-				DB262E72246BC83B00568FFE /* ResizedCircleImage.swift */,
 				DB262E1824611D0D00568FFE /* Assets.xcassets */,
 				DB262E1D24611D0D00568FFE /* LaunchScreen.storyboard */,
 				DB262E2024611D0D00568FFE /* Info.plist */,
@@ -245,6 +249,8 @@
 			isa = PBXGroup;
 			children = (
 				DB5CC5882475FB6F001FE3B7 /* TestPractice.swift */,
+				DB5CC58D2478A320001FE3B7 /* PhotoLibrary.swift */,
+				DB5CC58F2478A3FD001FE3B7 /* Coordinator.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -411,6 +417,7 @@
 				DB262E4324612BF200568FFE /* CircleImage.swift in Sources */,
 				DB262E83246E0CFB00568FFE /* RecipeStepDetail.swift in Sources */,
 				DB262E77246C758800568FFE /* UserData.swift in Sources */,
+				DB5CC58E2478A320001FE3B7 /* PhotoLibrary.swift in Sources */,
 				DB262E81246DF5CC00568FFE /* DataExchange.swift in Sources */,
 				DB262E1524611D0A00568FFE /* SceneDelegate.swift in Sources */,
 				DB262E1724611D0A00568FFE /* MainView.swift in Sources */,
@@ -418,6 +425,7 @@
 				DB262E73246BC83B00568FFE /* ResizedCircleImage.swift in Sources */,
 				DB5CC5892475FB6F001FE3B7 /* TestPractice.swift in Sources */,
 				DB262E6B24613A9800568FFE /* Data.swift in Sources */,
+				DB5CC5902478A3FD001FE3B7 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
